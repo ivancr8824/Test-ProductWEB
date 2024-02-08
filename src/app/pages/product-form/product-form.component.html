@@ -1,0 +1,45 @@
+<p class="text-center font-bold text-3xl">{{title}}</p>
+<div class="w-full flex justify-center">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <mat-form-field class="w-full">
+      <mat-label>UPC</mat-label>
+      <input formControlName="upc" matInput placeholder="COD-111">
+      <mat-error *ngIf="isValidField('upc')">
+        Este campo es requerido
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Nombre</mat-label>
+      <input formControlName="name" matInput placeholder="Brocas">
+      <mat-error *ngIf="isValidField('name')">
+        Este campo es requerido
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Modelo</mat-label>
+      <input formControlName="model" matInput placeholder="ACF-111">
+      <mat-error *ngIf="isValidField('model')">
+        Este campo es requerido
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Precio</mat-label>
+      <input formControlName="price" matInput placeholder="12.23">
+      <mat-error *ngIf="isValidField('price')">
+        Este campo es requerido
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Stock</mat-label>
+      <input formControlName="stock" matInput placeholder="3">
+      <mat-error *ngIf="isValidField('stock')">
+        Este campo es requerido
+      </mat-error>
+    </mat-form-field>
+    <div class="w-full flex justify-center gap-3">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid" *ngIf="!isSaving">Guardar</button>
+      <button mat-raised-button color="warn" [routerLink]="['list']" *ngIf="!isSaving">Volver al Listado</button>
+      <button mat-raised-button color="primary" [disabled]="true" *ngIf="isSaving">...Guardando</button>
+    </div>
+  </form>
+</div>
