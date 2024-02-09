@@ -1,6 +1,7 @@
 <p class="font-bold text-center text-3xl">Listado de Productos</p>
-<div class="w-full flex justify-end px-5">
+<div class="w-full flex justify-end px-5 gap-2">
   <button mat-raised-button color="primary" [routerLink]="['/product', 'new']">Nuevo Producto</button>
+  <button mat-raised-button color="warn" (click)="requestDeleteAllProduct()">Borrar Todos los Productos</button>
 </div>
 <table mat-table [dataSource]="products" class="">
 

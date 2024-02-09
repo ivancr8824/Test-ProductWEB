@@ -44,4 +44,13 @@ export class ListProductsComponent implements OnInit {
       }
     })
   }
+
+  requestDeleteAllProduct(){
+    this.productService.requestDeleteAllProducts().subscribe(message => {
+      Swal.fire({
+        text: 'Los productos serán borrados dentro de 2 min.',
+        icon: "success"
+      });
+    });
+  }
 }

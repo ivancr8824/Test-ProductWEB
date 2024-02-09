@@ -28,4 +28,8 @@ export class ProductService {
   public deleteProduct(id: string): Observable<boolean> {
     return this.dataService.delete<boolean>(`/product/${id}`);
   }
+
+  public requestDeleteAllProducts(): Observable<boolean> {
+    return this.dataService.get<boolean>(`/product/requestDeleteAllProducts`);
+  }
 }
